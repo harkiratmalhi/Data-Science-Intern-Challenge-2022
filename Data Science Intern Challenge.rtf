@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Question 1\
+	a.  It appears that the naive calculation of AOV is done by calculating the average of the \'93order_amount\'94 column. A more accurate way to calculate AOV would be to find the AOV of each sneaker shop, and then to calculate the average of all AOV\'92s. That is, to find the AOV of one arbitrary shop, one must sum the \'93order_amount\'94 column for that particular shop and divide it by the sum of the \'93total_items\'94 column for that particular shop.\
+\
+	b. After calculating the AOV of all individual shops and then calculating the average of all of the AOV\'92s, the result I got was $407.99. However, after plotting my results of AOV on a graph there was an obvious outlier, shop id 78. Shop id 78 had and extremely large revenue. Upon further examination, I found that another outlier in regards to the number or items sold was shop id 42, which had a very large number of items sold. Due to these outliers using metrics such as mode or median would be better suited for this data because they not impacted by outliers as severely as mean. I would report median for this dataset instead of mean.\
+\
+	c. The median value is 153.\
+\
+Question 2\
+	a. \
+	Query: \
+	SELECT count(ShipperID) from Orders where ShipperID == 1;\
+	\
+	54\
+\
+	b. \
+	Query: \
+	SELECT LastName from orders o join employees e on o.employeeID = e.employeeID group by o.employeeID order by count(o.OrderID) desc limit 1\
+	\
+	Peacock\
+\
+	c.\
+	Query:\
+	SELECT p.ProductName from OrderDetails d join Orders o on d.OrderID = o.OrderID join Customers c on o.CustomerID = c.CustomerID join Products p on p.ProductID = d.ProductID where c.country = "Germany" group by p.productID order by sum(quantity) desc limit 1\
+\
+	 Boston Crab Meat}
